@@ -8,8 +8,30 @@ import unidades from '../../activities/unidades.json';
 
 export const unit = unidades.find(u => u.nombre === frontmatter.title);
 
+## Introducción
+
+En esta unidad descubrirás cómo traducir algunos conceptos fundamentales de  
+la programación en alto nivel, como condicionales, ciclos, punteros y funciones, a lenguaje 
+ensamblador. Utilizarás el lenguaje Hack de la unidad anterior 
+para construir programas que interactúen con el teclado y la pantalla, manipulen 
+arreglos y utilicen punteros.
+
+Como dato curioso, trabajar en el lenguaje ensamblador de la GPU fue una de las optimizaciones 
+que le permitió a la empresa China Deepseek lograr un rendimiento importante en la ejecución de 
+su modelo del lenguaje Deepseek R1. 
+
+Quiero insistir con algo IMPORTANTE. El objetivo de la unidad no es que programes en 
+lenguaje ensamblador, sino usarlo como un medio para que entiedas cómo se implementan 
+en un computador algunos de los conceptos fundamentales de la programación en alto nivel.
 
 ## ¿Qué aprenderás en esta unidad?
+
+En esta fase, reflexionarás sobre el sentido de aprender lenguaje ensamblador 
+en tu carrera considerando que posiblemente no programarás profesionalmente 
+en este. Entonces ¿Por qué vale la pena hacer este esfuerzo? La razón fundamental es 
+que puedas reflexionar de manera profunda y más concreta en esos conceptos de alto 
+nivel que en principio te han presentado como abstracciones, pero que realmente puedes 
+visualizar de manera concreta usando el lenguaje ensamblador.
 
 {unit.actividades
   .filter(act => act.fase === "set")
@@ -23,6 +45,8 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
 
 ## Investigación
 
+Ahora vas a explorar los conceptos fundamentales que luego aplicarás en la siguiente fase.
+
 {unit.actividades
   .filter(act => act.fase === "seek")
   .map(act => (
@@ -35,6 +59,9 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
 
 ## Aplicación
 
+Llegó el momento de aplicar los conceptos. Es momento de transferir ese conocimiento 
+y resolver problemas.
+
 {unit.actividades
   .filter(act => act.fase === "apply")
   .map(act => (
@@ -45,7 +72,9 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
   ))
 }
 
-## Consolidación y matacognión
+## Consolidación y metacognición
+
+Vas a reflexionar sobre el trabajo realizado en la unidad y a consolidar lo aprendido.
 
 {unit.actividades
   .filter(act => act.fase === "reflect")

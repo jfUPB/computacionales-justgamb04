@@ -1,4 +1,4 @@
-#### ¿Cuál es la función de cada tipo de instrucción en el lenguaje ensamblador Hack?**
+#### ¿Cuál es la función de cada tipo de instrucción en el lenguaje ensamblador Hack?
 
 En el lenguaje ensamblador Hack, existen dos tipos principales de instrucciones: las **A-instructions** y las **C-instructions**.
 
@@ -6,7 +6,7 @@ En el lenguaje ensamblador Hack, existen dos tipos principales de instrucciones:
 
 - **C-instructions (Computation instructions)**: Son instrucciones que realizan operaciones de cómputo, como operaciones aritméticas y lógicas, y controlan cómo se deben almacenar los resultados de estas operaciones, indicando si el valor debe guardarse en la memoria o en un registro. También especifican condicionales de salto, permitiendo el flujo de control dentro del programa.
 
-#### ¿Cómo se representa cada tipo de instrucción en binario?**
+#### ¿Cómo se representa cada tipo de instrucción en binario?
 
 - **A-instructions**: Las A-instructions se representan en binario con un formato de 16 bits. El primer bit es siempre **0** (indica que es una A-instrucción), seguido de 15 bits que representan el valor de la dirección de memoria o el valor inmediato (en formato binario).
   
@@ -28,7 +28,7 @@ En el lenguaje ensamblador Hack, existen dos tipos principales de instrucciones:
   +------------------------ bit fijo
   ```
 
-**3. Ejemplos de A-instructions y C-instructions**
+##### 3. Ejemplos de A-instructions y C-instructions
 
 ### Ejemplos de A-instructions:
 - **A-instruction: `@10`**
@@ -56,7 +56,7 @@ En el lenguaje ensamblador Hack, existen dos tipos principales de instrucciones:
   - **Binario**: `1110000010010000`
   - **Explicación**: Esta instrucción realiza una operación de adición entre los valores almacenados en los registros **D** y **A**, y guarda el resultado en el registro **D**. 
 
-**Conclusión:**
+##### Conclusión:
 
 - Las **A-instructions** se encargan de establecer valores de direcciones de memoria o valores constantes en el registro **A**. Se representan en un formato de 16 bits, donde los 15 bits restantes codifican la dirección o el valor.
   

@@ -14,9 +14,9 @@ interface Props {
 }
 
 const { unidades } = Astro.props;
+const weights = [0.15, 0.20, 0.25, 0.08, 0.08, 0.08, 0.08, 0.08];
 const averageGrade = unidades.length > 0 
-  ? unidades.reduce((sum, unit) => sum + calculateUnitGrade(unit.actividades), 0) / unidades.length
-  : 0;
+  ? unidades.reduce((sum, unit, index) => sum + calculateUnitGrade(unit.actividades)* weights[index], 0): 0;
 ---
 
 <h4 class="average-grade">

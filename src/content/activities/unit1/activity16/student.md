@@ -18,4 +18,5 @@ Que el maestro esté pendiente frente a cualquier duda que uno tenga permite que
 Pues las herramientas de aprendizaje que ví son cosas que facilmente habrán en las otras unidades, la inteligencia artificial la seguiré usando de manera moderada y responsable para no desviarme del objetivo de aprender. Las instrucciones no son algo que de mi parte pueda aplicar si no están en las próximas unidades, sin embargo, considero que si de mi parte al entender el problema, situación o ver el objetivo de la actividad; puedo crear un paso a paso en mi cabeza para completarlo de manera más sencilla. en cuanto al acompañamiento del profesor, lo mas lógico y beneficioso es pedirlo.
 
 #### Habilidades que me gustaría mejorar
-Para programar en ensamblador, debo tomar muchas cosas en cuenta que normalmente no tomaría...
+Para programar en ensamblador, debo pensar en cada instrucción, optimizar memoria y manejar registros directamente, lo cual es más difícil que en lenguajes de alto nivel.  
+Me gustaría mejorar en optimización de código para hacerlo más eficiente y en debugging, porque encontrar errores en ensamblador puede ser complicado. Esto me serviría en el futuro para optimizar motores gráficos o desarrollar juegos en hardware con recursos limitados.

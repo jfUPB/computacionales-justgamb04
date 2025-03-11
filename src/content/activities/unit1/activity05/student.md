@@ -1,7 +1,8 @@
 Esto es un programa simple en ensamblador Hack que suma dos números y almacena el resultado en la memoria.   
 
 ### Código en ensamblador Hack
-```assembly
+
+``` asm
 // Programa para sumar 5 + 3 y almacenar el resultado en la dirección de memoria 16
 @5
 D=A

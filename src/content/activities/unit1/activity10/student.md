@@ -1,7 +1,5 @@
-
----
-
 ### **Tabla detallada para la ejecución**
+
 | **Paso** | **PC (Contador de Programa)** | **Instrucción** | **Decodificación** | **Ejecución (Cambios en A, D, M)** |
 |---------|------|----------------|----------------|--------------------------------|
 | 1       | 0    | `@16384`       | A = 16384     | A ← 16384                      |
@@ -14,6 +12,7 @@
 | 8       | 7    | `@5`           | A = 5         | A ← 5                          |
 | 9       | 8    | `0;JMP`        | Salto incondicional | PC ← 5 (Bucle infinito) |
 
----
-![image](https://github.com/user-attachments/assets/a711fd46-81b2-4562-87b9-f2e56261e14d)
+
+
+![image](https://github.com/user-attachments/assets/a711fd46-81b2-4562-87b9-f2e56261e14d)  
 ![image](https://github.com/user-attachments/assets/c6b398a5-3e74-4df1-a36d-42f5a9df172a)

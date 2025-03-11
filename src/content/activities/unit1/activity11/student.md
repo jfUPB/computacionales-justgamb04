@@ -1,6 +1,4 @@
 
----
-
 ### **Tabla del Ciclo Fetch-Decode-Execute**
 | **Paso** | **PC** | **Instrucción** | **Decodificación** | **Ejecución (Cambios en A, D, M)** |
 |---------|------|----------------|----------------|--------------------------------|
@@ -13,7 +11,7 @@
 | 7       | 6    | `@5`           | A = 5         | A ← 5                          |
 | 8       | 7    | `0;JMP`        | Salto incondicional | PC ← 5 (Bucle infinito) |
 
----
 
-![image](https://github.com/user-attachments/assets/7309efda-59c0-4b2c-a099-f70048d84150)
+![image](https://github.com/user-attachments/assets/7309efda-59c0-4b2c-a099-f70048d84150)  
+
 ![image](https://github.com/user-attachments/assets/1e8d9436-584d-4821-8e5c-e668732e6a56)

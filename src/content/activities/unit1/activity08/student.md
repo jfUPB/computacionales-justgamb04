@@ -1,6 +1,6 @@
 #### Codigo del programa
 
-```assembly
+``` asm
 // Cargar el valor almacenado en la dirección de memoria 5 en D
 @5
 D=M
@@ -29,10 +29,6 @@ M=1
 @FIN
 0;JMP
 ```
-
----
-
-
 
 
 ![image](https://github.com/user-attachments/assets/c3abe7cf-3164-4549-b625-94cf25b4e469)

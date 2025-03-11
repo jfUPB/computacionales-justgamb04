@@ -1,5 +1,6 @@
 #### Codigo
-```assembly
+
+``` asm
 // Inicializar el contador en 1
 @1
 D=A

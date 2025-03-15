@@ -1,3 +1,9 @@
+
+import LoadP5 from "../../../../components/LoadP5.astro";
+import P5Simulation from "../../../../components/P5Simulation.astro";
+import P5Interpolation  from "../../../../components/P5Interpolation.astro";
+import P5ColorWheel from "../../../../components/P5ColorWheel.astro";
+
 #### Implementación de la lista en enlazada
 
 🎯 **Enunciado**: en la actividad anterior usaste una lista enlazada para 
@@ -344,13 +350,11 @@ while (current != nullptr) {
     current = current->next;
 }
 ```
+<LoadP5 />
 
 Para entender cómo funciona mix, observa antes esta simulación:
 
-<iframe
-  src="https://editor.p5js.org/juanferfranco/full/h2mlPjVgl"
-  style="width: 600px; height: 600px; border: none;"
-></iframe>
+<P5Interpolation />
 
 `glm::mix` te permitirá interpolar entre dos vectores. En este caso, estás interpolando 
 entre la posición actual del nodo y la posición del mouse. El tercer parámetro es el factor 
@@ -362,10 +366,7 @@ Finalmente, analiza la función draw. En esta función se dibuja la serpiente.
 
 Si necesitas repasar el sistema HSB revisa esta simulación:
 
-<iframe
-  src="https://editor.p5js.org/juanferfranco/full/2zZPRMk-q"
-  style="width: 800px; height: 600px; border: none;"
-></iframe>
+<P5ColorWheel />
 
 Te dejo el código completo.
 

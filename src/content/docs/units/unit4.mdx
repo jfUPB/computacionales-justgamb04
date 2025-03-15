@@ -49,6 +49,8 @@ openFrameworks y con la programación creativa antes de implementar la lista enl
   ))
 }
 
+import InvestigacionContent from '../../activities/unit4/activity02/activity.mdx';
+
 ## Investigación 🔎
 
 📌 En esta fase, vamos a analizar juntos cómo se implementa una lista enlazada en C++ y cómo se puede 
@@ -58,13 +60,21 @@ aplicar a un problema concreto.
 
 {unit.actividades
   .filter(act => act.fase === "seek")
-  .map(act => (
-    <ActivityPlaceholder 
-      id={act.nombre.replace('actividad','activity').replace('.md', '')} 
-      unit={frontmatter.unitId}
-    />
-  ))
+  .map(act => {
+    // Verifica si el archivo es .mdx o .md
+    const isMDX = act.nombre === "activity.mdx";
+    
+    return isMDX ? (
+      <InvestigacionContent />
+    ) : (
+      <ActivityPlaceholder 
+        id={act.nombre.replace('actividad','activity').replace('.md', '')} 
+        unit={frontmatter.unitId}
+      />
+    );
+  })
 }
+
 
 ## Aplicación 🛠 
 

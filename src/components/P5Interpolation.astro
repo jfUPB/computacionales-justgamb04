@@ -1,0 +1,99 @@
+---
+---
+<div class="p5-container"></div>
+
+<script>
+function waitForP5(callback) {
+  if (window.p5) {
+    console.log("p5.js ya está disponible.");
+    callback();
+  } else {
+    console.log("Esperando p5.js...");
+    const checkP5 = setInterval(() => {
+      if (window.p5) {
+        clearInterval(checkP5);
+        console.log("p5.js finalmente disponible.");
+        callback();
+      }
+    }, 100);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  waitForP5(() => {
+    console.log("Ejecutando la simulación de interpolación...");
+    new p5((p) => {
+
+      let currentPos, target;
+
+      p.setup = function () {
+        let canvas = p.createCanvas(600, 600);
+        canvas.parent(document.querySelector(".p5-container"));
+        currentPos = p.createVector(150, 300);
+        target = p.createVector(450, 300);
+      };
+
+      p.draw = function () {
+        p.background(0);
+        p.textSize(20);
+        p.strokeWeight(2);
+
+        // Vector mix o interpolado
+        
+        // Vector "x" (currentPos) en verde
+        p.stroke('green');
+        p.line(0, 0, currentPos.x, currentPos.y);
+        drawArrowHead(currentPos, 'green');
+        p.noStroke();
+        p.fill('green');
+        p.text("x (current)", currentPos.x, currentPos.y + 20);
+        
+        // Vector "y" (target) en rojo
+        p.stroke('red');
+        p.line(0, 0, target.x, target.y);
+        drawArrowHead(target, 'red');
+        p.noStroke();
+        p.fill('red');
+        p.text("y (target)", target.x, target.y + 20);
+        
+        // Vector interpolado en blanco
+        let t = p.constrain(p.map(p.mouseX,currentPos.x, target.x,0,1),0,1);
+        let mixed = p5.Vector.add(p5.Vector.mult(currentPos, 1-t), p5.Vector.mult(target,t))    
+        
+        p.stroke('white');
+        p.line(0, 0, mixed.x, mixed.y);
+        drawArrowHead(mixed, 'white');
+        p.noStroke();
+        p.fill('white');
+        let aValue = p.round(t,2);
+        p.text(`mix(x, y, ${aValue})`, mixed.x+10, mixed.y);
+      };
+
+      function drawArrowHead(vec, col) {
+        p.push();
+        p.translate(vec.x, vec.y);
+        let angle = p.atan2(vec.y, vec.x);
+        p.rotate(angle);
+        p.fill(col);
+        p.noStroke();
+        p.triangle(0, 0, -10, 5, -10, -5);
+        p.pop();
+      }
+
+
+
+    });
+  });
+});
+</script>
+
+<style>
+  .p5-container {
+    width: 400px;
+      height: 400px;
+      margin: 2rem auto;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+  }
+</style>

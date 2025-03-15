@@ -1,0 +1,177 @@
+---
+---
+<div class="p5-container2"></div>
+
+<script>
+function waitForP5(callback) {
+  if (window.p5) {
+    console.log("p5.js ya está disponible.");
+    callback();
+  } else {
+    console.log("Esperando p5.js...");
+    const checkP5 = setInterval(() => {
+      if (window.p5) {
+        clearInterval(checkP5);
+        console.log("p5.js finalmente disponible.");
+        callback();
+      }
+    }, 100);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  waitForP5(() => {
+    console.log("Ejecutando la simulación del sistema HSB...");
+    new p5((p) => {
+
+      let hueSlider, satSlider, brightSlider;
+      let hsbColor, rgbColor;
+      let colorWheelGraphic;
+      let wheelRadius = 150; // Radio de la rueda de color
+      let wheelX = 230, wheelY = 390; // Posición deseada de la color wheel en el canvas
+
+      p.setup = function () {
+        let canvas = p.createCanvas(480, 550);
+        canvas.parent(document.querySelector(".p5-container2"));
+        p.colorMode(p.HSB, 255);
+
+        // Posicionar los sliders al lado derecho del canvas
+        let sliderX = p.width + 20;
+
+        // Crear y reparentear los párrafos
+        let tonoP = p.createP("Tono (H)");
+        tonoP.parent(document.querySelector(".p5-container2"));
+        tonoP.position(sliderX, 20);
+
+        hueSlider = p.createSlider(0, 255, 0);
+        hueSlider.parent(document.querySelector(".p5-container2"));
+        hueSlider.position(sliderX, 50);
+
+        let satP = p.createP("Saturación (S)");
+        satP.parent(document.querySelector(".p5-container2"));
+        satP.position(sliderX, 80);
+
+        satSlider = p.createSlider(0, 255, 255);
+        satSlider.parent(document.querySelector(".p5-container2"));
+        satSlider.position(sliderX, 110);
+
+        let brilloP = p.createP("Brillo (B)");
+        brilloP.parent(document.querySelector(".p5-container2"));
+        brilloP.position(sliderX, 140);
+
+        brightSlider = p.createSlider(0, 255, 255);
+        brightSlider.parent(document.querySelector(".p5-container2"));
+        brightSlider.position(sliderX, 170);
+
+        // Pre-dibuja la color wheel en un gráfico fuera de pantalla con 90° de rotación CCW
+        colorWheelGraphic = createColorWheelGraphic(wheelRadius);
+
+        tonoP.style('margin', '0');
+        satP.style('margin', '0');
+        brilloP.style('margin', '0');
+      };
+
+
+
+      p.draw = function () {
+        p.background(30);
+        p.noStroke();
+        
+        let h = hueSlider.value();
+        let s = satSlider.value();
+        let b = brightSlider.value();
+        
+        hsbColor = p.color(h, s, b);
+        rgbColor = p.color(hsbColor);
+        
+        // Rectángulo que muestra el color HSB
+        p.fill(hsbColor);
+        p.rect(20, 80, 150, 100);
+        p.fill(255);
+        p.textSize(16);
+        p.text(`HSB: ${h}, ${s}, ${b}`, 30, 50);
+        p.text(`(${getSaturationDescription(s)}, ${getBrightnessDescription(b)})`, 20, 220);
+        
+        // Rectángulo que muestra el color RGB
+        p.fill(rgbColor);
+        p.rect(300, 80, 150, 100);
+        p.fill(255);
+        let redColor = p.round(p.red(rgbColor));
+        let greenColor = p.round(p.green(rgbColor));
+        let blueColor = p.round(p.blue(rgbColor));
+        p.text(`RGB: ${redColor}, ${greenColor}, ${blueColor}`, 300, 50);
+        
+        // Dibujar la color wheel en la posición definida
+        drawColorWheelAt(wheelX, wheelY);
+      };
+
+      function createColorWheelGraphic(r) {
+        let graphic = p.createGraphics(r * 2, r * 2);
+        graphic.colorMode(p.HSB, 255);
+        graphic.noStroke();
+        
+        for (let angle = 0; angle < 360; angle++) {
+          for (let radius = 0; radius < r; radius++) {
+            let h = angle / 360 * 255;
+            let s = p.map(radius, 0, r, 0, 255);
+            let b = 255;
+            let c = p.color(h, s, b);
+            // Ajustar el ángulo para que 0° quede arriba: se resta 90°
+            let angleAdjusted = angle - 90;
+            let px = r + p.cos(p.radians(angleAdjusted)) * radius;
+            let py = r + p.sin(p.radians(angleAdjusted)) * radius;
+            graphic.stroke(c);
+            graphic.point(px, py);
+          }
+        }
+        return graphic;
+      }
+
+      // Función para dibujar la color wheel (usando el gráfico precargado) y el marcador en (x, y)
+      function drawColorWheelAt(x, y) {
+        p.image(colorWheelGraphic, x - wheelRadius, y - wheelRadius);
+        
+        // Dibujar el marcador en la rueda según los sliders de tono y saturación
+        let h = hueSlider.value();
+        let s = satSlider.value();
+        // Calcular el ángulo del marcador y ajustar para que 0° quede en la parte superior
+        let markerAngle = p.map(h, 0, 255, 0, 360) - 90;
+        let markerRadius = p.map(s, 0, 255, 0, wheelRadius);
+        let markerX = x + p.cos(p.radians(markerAngle)) * markerRadius;
+        let markerY = y + p.sin(p.radians(markerAngle)) * markerRadius;
+        p.fill(0);
+        p.ellipse(markerX, markerY, 15, 15);
+      }
+
+      function getSaturationDescription(s) {
+        if (s < 50) return "Muy baja saturación (casi gris)";
+        if (s < 130) return "Saturación media (colores apagados)";
+        return "Alta saturación (colores vivos)";
+      }
+
+      function getBrightnessDescription(b) {
+        if (b < 50) return "Muy oscuro";
+        if (b < 130) return "Brillo medio";
+        return "Brillo alto";
+      }
+
+
+
+
+
+    });
+  });
+});
+</script>
+
+<style>
+  .p5-container2 {
+    position: relative;
+    width: 650px;
+    height: 550px;
+    margin: 2rem auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+</style>

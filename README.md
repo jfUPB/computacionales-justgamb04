@@ -6,7 +6,7 @@
 
 ## Tu sitio web personalizado
 
-Tendrás un sitio web personalizado solo para ti en este curso. Una vez generado, lo podrás encontrar [aquí](https://jfupb.github.io/computacionales-2025-10-computacionales-template2025-10)
+Tendrás un sitio web personalizado solo para ti en este curso. Una vez generado, lo podrás encontrar [aquí](https://jfupb.github.io/computacionales-justgamb04)
 
 ## Realización de actividades
 

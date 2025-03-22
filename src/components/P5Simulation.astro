@@ -1,0 +1,71 @@
+---
+const { sketch } = Astro.props;
+---
+
+<div class="p5-container"></div>
+
+<script type="text/plain" id="p5-sketch">
+  {sketch}
+</script>
+
+<script>
+function loadP5(callback) {
+  if (window.p5) {
+    console.log("p5.js ya estaba cargado.");
+    callback();
+    return;
+  }
+
+  console.log("Cargando p5.js...");
+  const script = document.createElement("script");
+  script.src = "https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js";
+  script.onload = () => {
+    console.log("p5.js cargado correctamente.");
+    callback();
+  };
+  document.head.appendChild(script);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("Cargando simulación...");
+
+  loadP5(() => {
+    console.log("Ejecutando la simulación...");
+
+    const container = document.querySelector(".p5-container");
+    const scriptTag = document.getElementById("p5-sketch");
+
+    if (!container || !scriptTag) {
+      console.error("Error: No se encontró el contenedor o el código de la simulación.");
+      return;
+    }
+
+    const sketchCode = scriptTag.textContent.trim();
+
+    if (!sketchCode) {
+      console.error("Error: No se encontró el código de la simulación.");
+      return;
+    }
+
+    try {
+      new p5(eval(`(function(p) { ${sketchCode} })`), container);
+    } catch (error) {
+      console.error("Error ejecutando la simulación:", error);
+    }
+  });
+});
+</script>
+
+<style>
+  .p5-container {
+    width: 600px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+</style>

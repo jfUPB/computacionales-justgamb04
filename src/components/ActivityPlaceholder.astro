@@ -10,7 +10,13 @@ let notStarted = false;
 
 
 try {
-  activityContent = await import(`../content/activities/${unit}/${id}/activity.md`);
+  // Intentamos cargar primero como .mdx, luego como .md
+  try {
+    activityContent = await import(`../content/activities/${unit}/${id}/activity.mdx`);
+  } catch {
+    activityContent = await import(`../content/activities/${unit}/${id}/activity.md`);
+  }
+
   studentContent = await import(`../content/activities/${unit}/${id}/student.md`);
   solutionContent = await import(`../content/activities/${unit}/${id}/solution.md`);
   feedbackContent = await import(`../content/activities/${unit}/${id}/feedback.md`);

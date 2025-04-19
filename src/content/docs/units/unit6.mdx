@@ -8,8 +8,31 @@ import unidades from '../../activities/unidades.json';
 
 export const unit = unidades.find(u => u.nombre === frontmatter.title);
 
+## Introducción 📜
 
-## ¿Qué aprenderás en esta unidad?
+En esta unidad exploraremos algunos patrones de diseño (Observer, Factory y State). 
+Estos patrones son soluciones comprobadas a problemas comunes en el diseño de 
+software orientado a objetos. Aplicarás estos patrones al desarrollo de un proyecto 
+de arte generativo interactivo en tiempo real utilizando C++ y openFrameworks. 
+Además, enfatizaremos la importancia de realizar pruebas desde el inicio del desarrollo
+ para garantizar el correcto funcionamiento de las aplicaciones.
+
+Comenzaremos explorando un caso de estudio que implementa estos tres patrones 
+para que puedas verlos en acción antes de analizarlos en detalle.
+
+## ¿Qué aprenderás en esta unidad? 💡
+
+*   **Comprenderás los patrones Observer, Factory y State:** identificarás el problema que resuelve 
+cada patrón, su estructura y sus componentes clave.
+*   **Analizarás la implementación de patrones en código real:** desglosarás el caso de estudio 
+para ver cómo se aplican concretamente estos patrones en C++.
+*   **Aplicarás los patrones en un nuevo contexto:** diseñarás y desarrollarás tu propio proyecto 
+de arte generativo, utilizando estratégicamente los patrones aprendidos.
+*   **Valorarás la importancia del testing en el desarrollo:** integrarás pruebas básicas para 
+verificar el funcionamiento de los patrones implementados.
+*   **Reflexionarás sobre el proceso de diseño:** consolidarás tu aprendizaje explicando 
+cómo y por qué utilizaste cada patrón en tu proyecto.
+
 
 {unit.actividades
   .filter(act => act.fase === "set")
@@ -21,7 +44,10 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
   ))
 }
 
-## Investigación
+## Investigación 🔎
+
+En esta fase vas a analizar detenidamente el caso de estudio que implementa los patrones
+Observer, Factory y State.
 
 {unit.actividades
   .filter(act => act.fase === "seek")
@@ -32,8 +58,11 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
     />
   ))
 }
+ 
+## Aplicación 🛠 
 
-## Aplicación
+En esta fase vas a aplicar los patrones de diseño que aprendiste en el caso de estudio 
+a un nuevo proyecto de arte generativo interactivo en tiempo real.
 
 {unit.actividades
   .filter(act => act.fase === "apply")
@@ -45,7 +74,10 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
   ))
 }
 
-## Consolidación y matacognión
+## Consolidación y metacognición 🤔
+
+Finalmente, en esta fase consolidarás lo aprendido, te autoevaluarás y ofrecerás 
+feedback para mejorar esta unidad para futuros estudiantes.
 
 {unit.actividades
   .filter(act => act.fase === "reflect")

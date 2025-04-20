@@ -8,8 +8,25 @@ import unidades from '../../activities/unidades.json';
 
 export const unit = unidades.find(u => u.nombre === frontmatter.title);
 
+## Introducción 📜 
 
-## ¿Qué aprenderás en esta unidad?
+En esta última unidad, exploraremos el mundo de la concurrencia utilizando 
+**hilos** (threads). Aprenderás cómo un solo programa puede ejecutar múltiples 
+secuencias de instrucciones aparentemente al mismo tiempo. Descubrirás los dos grandes 
+beneficios: mantener tu aplicación **responsiva** incluso cuando realiza tareas largas 
+y acelerar cálculos intensivos mediante el **paralelismo**. Sin embargo, también enfrentaremos 
+el principal desafío: gestionar de forma segura los datos compartidos entre hilos para 
+evitar errores. Utilizaremos proyectos ejemplo y analizaremos ejemplos 
+funcionales para entender estos conceptos de forma práctica.
+
+## ¿Qué aprenderás en esta unidad? 💡
+
+*   **Diferenciar conceptos:** entenderás la diferencia básica entre proceso e hilo.
+*   **Identificar beneficios:** reconocerás cuándo usar hilos para mejorar la responsividad o el rendimiento (paralelismo).
+*   **Analizar código concurrente:** examinarás ejemplos que usan hilos para realizar tareas en segundo plano o en paralelo.
+*   **Comprender la sincronización básica:** entenderás por qué es necesario proteger datos compartidos y cómo usar mecanismos simples como `lock`/`unlock` (mutex).
+*   **Medir y comparar rendimiento:** evaluarás el impacto del paralelismo en tareas computacionales.
+*   **Aplicar conceptos:** modificarás un ejemplo existente para implementar una tarea paralela interactiva.
 
 {unit.actividades
   .filter(act => act.fase === "set")
@@ -21,7 +38,7 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
   ))
 }
 
-## Investigación
+## Investigación 🔎
 
 {unit.actividades
   .filter(act => act.fase === "seek")
@@ -33,7 +50,7 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
   ))
 }
 
-## Aplicación
+## Aplicación 🛠
 
 {unit.actividades
   .filter(act => act.fase === "apply")
@@ -45,7 +62,7 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
   ))
 }
 
-## Consolidación y metacognición
+## Consolidación y metacognición 🤔
 
 {unit.actividades
   .filter(act => act.fase === "reflect")

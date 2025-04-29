@@ -76,7 +76,7 @@ int main() {
 - Los **miembros de instancia** como `valor` están almacenados **dentro del objeto**. Es decir, cada vez que se crea un objeto, se reserva memoria para ese miembro dentro del objeto (en stack o heap, dependiendo de cómo se crea).
 - El **miembro estático** `total` **no está dentro de los objetos**. Está almacenado una sola vez, en el **segmento de datos estáticos/globales** del programa. No se almacena junto con `c1`, `c2` ni `*c3`.
 
-## **Conclusiones**
+### **Conclusiones**
 
 - En C++, los miembros **de instancia** existen **una vez por cada objeto**, mientras que los miembros **estáticos** existen **una sola vez para toda la clase**, independientemente del número de instancias creadas.
 - Los miembros estáticos son útiles para datos comunes a todos los objetos, como contadores, configuraciones globales o caches compartidos.

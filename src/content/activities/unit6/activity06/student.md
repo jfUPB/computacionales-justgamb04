@@ -174,7 +174,7 @@ socket.on('mobileInputForwarded', (data) => {
 
 ### Por qué usar State?
 
-Permitió separar claramente los comportamientos del sistema según su modo, sin tener que escribir múltiples `if` en una sola clase. Habría sido más engorroso manejar esto solo con `switch/case`, perdiendo modularidad.
+Permitió separar claramente los comportamientos del sistema según su modo, sin tener que escribir múltiples `if` en una sola clase. Habría sido más difícil manejar esto solo con `switch/case`, perdiendo modularidad.
 
 ## Definiciones Post-Experiencia
 

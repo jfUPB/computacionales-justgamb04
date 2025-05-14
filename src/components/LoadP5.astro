@@ -1,0 +1,14 @@
+---
+---
+<script>
+    if (!window.p5) {
+      console.log("Cargando p5.js globalmente...");
+      const script = document.createElement("script");
+      script.src = "https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js";
+      script.onload = () => console.log("p5.js cargado correctamente.");
+      document.head.appendChild(script);
+    } else {
+      console.log("p5.js ya estaba cargado.");
+    }
+</script>
+    
